@@ -5,7 +5,21 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 //        Main.test(); <- the way to revoke the method
-        Main.hypotenuse(null);
+
+    }
+    public static void ifStatement (String[] args) {
+        int age = 22;
+
+        if (age == 22) {
+            System.out.println("you are young!");
+        }
+
+        int score = 99;
+        if (score >= 80) {
+            System.out.println("congratulation, you passed the test!");
+        } else {
+            System.out.println("try again!");
+        }
     }
 
     public static void randomThings (String[] args) {
@@ -15,6 +29,9 @@ public class Main {
         double y = random.nextDouble();
         boolean z = random.nextBoolean();
 
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
     }
 
     public static void hypotenuse (String[] args) {
@@ -62,14 +79,16 @@ public class Main {
 //        modulo
         int pizza = 10;
         pizza = pizza % 2;
+        System.out.println(pizza);
 //        multiply and divide
         int money = 10 * 2;
         money = money * 2;
         money *= 1;
-
+        System.out.println(money);
         int salary =  500000 / 2;
         salary = salary / 2;
         salary /= 1;
+        System.out.println(salary);
     }
 
     public static void dataType (String[] args) {
@@ -99,6 +118,4 @@ public class Main {
         System.out.println("Your favorite food is "+ food);
 
     }
-
-
 }
