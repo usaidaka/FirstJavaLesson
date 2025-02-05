@@ -2,7 +2,189 @@ package Lesson;
 
 public class Exercice {
     public static void main(String[] args) {
-        hasSameLastDigit(20, 90, 31);
+
+    }
+    //    Diagonal Star
+    public static void printSquareStar(int number) {
+        if (number < 5) {
+            System.out.println("Invalid Value");
+            return;
+        }
+
+        for (int row = 1; row <= number; row++) {
+            for (int col = 1; col <= number; col++) {
+
+                // Conditions to print '*'
+                if (row == 1 || row == number || col == 1 || col == number || row == col || col == (number - row + 1)) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    //    Largest Prime
+    public static int getLargestPrime(int number) {
+        if (number < 2) {
+            return -1;
+        }
+        int largestPrime = -1;
+
+        while (number % 2 == 0) {
+            largestPrime = 2;
+            number /= 2;
+        }
+
+        for (int i = 3; i <= Math.sqrt(number); i += 2) {
+            while (number % i == 0) {
+                largestPrime = i;
+                number /= i;
+            }
+        }
+
+        if (number > 2) {
+            largestPrime = number;
+        }
+
+        return largestPrime;
+    }
+
+    //    Flour Pack
+    public static boolean canPack (int big, int small, int goal) {
+        if (big < 0 || small < 0 || goal < 0) return false;
+
+        int bigPack = big * 5;
+        int smallPack = small;
+        int remainingGoal = big != 0 ? (goal % 5) + ((goal / 5) - big) : goal;
+
+        System.out.println(remainingGoal + "<<< REMAINING GOAL");
+
+        if(big != 0 && bigPack % goal == 0) return true;
+
+        if (remainingGoal <= smallPack) {
+            return true;
+        }
+
+        return false;
+
+//        if (remainingGoal == 0) {
+//            System.out.println("TRUE 1");
+//            return true;
+//        } else {
+//            if (remainingGoal < 0 && remainingGoal + smallPack >= 0) {
+//            System.out.println("TRUE 2");
+//                return true;
+//            } else if (remainingGoal > 0 && remainingGoal - smallPack <= 0) {
+//            System.out.println("TRUE 3");
+//                return true;
+//            } else {
+//            System.out.println("FALSE 1");
+//                return false;
+//            }
+//        }
+    }
+
+
+    //    Number To Words
+    public static void numberToWords (int num) {
+        if (num < 0) {
+            System.out.println("Invalid Value");
+        }
+
+        if (num == 0) {
+            System.out.println("Zero");
+        }
+        int divider = 1;
+
+        while (num / divider >= 10) {
+            divider *= 10;
+        }
+
+        while (divider > 0) {
+            int digit = num / divider;
+            switch (digit) {
+                case 0 -> System.out.println("Zero");
+                case 1 -> System.out.println("One");
+                case 2 -> System.out.println("Two");
+                case 3 -> System.out.println("Three");
+                case 4 -> System.out.println("Four");
+                case 5 -> System.out.println("Five");
+                case 6 -> System.out.println("Six");
+                case 7 -> System.out.println("Seven");
+                case 8 -> System.out.println("Eight");
+                case 9 -> System.out.println("Nine");
+            }
+
+            num = num % divider;
+            divider /= 10;
+        }
+    }
+
+    public static int reverseNumber (int number) {
+        int reversed = 0;
+        while(number != 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+        return reversed;
+    }
+
+    public static int getDigitCount (int numb) {
+        String numStr = String.valueOf(numb);
+        return numStr.length();
+    }
+
+
+
+    //    perfect number
+    public static boolean isPerfectNumber (int num) {
+        int sum = 0;
+        if (num < 1) {
+            return false;
+        }
+        for (int i = 1 ; i < num - 1 ; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        if (num == sum) {
+            return true;
+        }
+        return false;
+    }
+
+    //    Greatest Common Divisor
+    public static int getGreatestCommonDivisors (int first, int second) {
+        if (first < 10 || second < 10) {
+            return -1;
+        }
+
+        int smaller = Math.min(first, second);
+        int gcd = 1;
+
+        for (int i = 1; i <= smaller; i++) {
+            if (first % i == 0 && second % i == 0) {
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
+
+    //    Print Factors
+    public static void printFactor (int num) {
+        if (num < 1) {
+            System.out.print("Invalid Value");
+        }
+
+        for (int i = 1 ; i <= num ; i++) {
+            if (num % i == 0) {
+                System.out.print(i);
+            }
+        }
     }
 
     //    last digit checker

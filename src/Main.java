@@ -7,6 +7,9 @@ public class Main {
 //        Main.test(); <- the way to revoke the method
 
     }
+//    Parsing values and reading input using System.console()
+
+
     public static void ifStatement (String[] args) {
         int age = 22;
 
